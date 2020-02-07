@@ -12,7 +12,7 @@ export class LibraryComponent implements OnInit {
   public form: FormGroup;
   public pageList: FormArray;
 
-  library: Livre[] = []
+  library: Livre[];
   
   get listeFormGroup() {
     return this.form.get('pages') as FormArray;
@@ -80,7 +80,12 @@ export class LibraryComponent implements OnInit {
     this.livreService.getLivres().subscribe(
       (resultat) => {
         console.log(resultat)
-        this.library = resultat.livres
+        
+          let livres =resultat
+    
+          this.library = resultat.livres
+  
+        
       })
   }
   supprime(numero: number) {
