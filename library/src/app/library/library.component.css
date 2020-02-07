@@ -1,5 +1,10 @@
 h1 {
     margin-left: 5%;
+    padding: 3%;
+    background-color: grey;
+    margin-right: 9%;
+    text-align: center;
+    color: white;
 }
 
 .card {
@@ -7,4 +12,17 @@ h1 {
     max-width: 400px;
     margin-left: 5%;
     margin-bottom: 5%;
+}
+mat-card {
+    margin-bottom: 10%;
+}
+
+button {
+    margin-bottom: 3%;
+}
+
+.positionFixed {
+    left: 80%;
+    top: 40%;
+    position: absolute;
 }

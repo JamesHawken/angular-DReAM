@@ -64,6 +64,7 @@ export class LibraryComponent implements OnInit {
 
   // Submit pour ajouter une page
   submit() {
+    alert("Les pages ont bien été ajoutés")
     //this.pageFormGroup.controls
     this.listeDePagesCourante = []
     //Map ne marche pas
