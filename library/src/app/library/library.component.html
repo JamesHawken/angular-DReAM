@@ -1,0 +1,64 @@
+<h1>Bienvenue dans la bibliothèque</h1>
+
+
+        <mat-card class="card" *ngFor="let livre of library">
+            <mat-card-title> {{livre.titre}} </mat-card-title>
+            <mat-card-subtitle *ngFor="let page of livre.pages; let i = index;">
+                {{page}}
+            </mat-card-subtitle>
+            <button>
+                <mat-icon (click)="supprime(livre.numero)">delete</mat-icon>
+            </button>
+        </mat-card>
+    
+
+
+
+<mat-card>
+
+
+    <form #idform="ngForm">
+        <mat-form-field>
+            <input matInput placeholder="Numero" id="numero" ngModel name="numero">
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput placeholder="Titre" id="titre" ngModel name="titre">
+        </mat-form-field>
+
+
+
+        <form [formGroup]="form" (submit)="submit()">
+            <div formArrayName="pages">
+                <!-- Loop Here -->
+                <div *ngFor="let page of pageFormGroup.controls; let i = index;">
+                    <div [formGroupName]="i" class="row">
+                        <input matInput placeholder="Page" id="pages" ngModel name="pages" class="form-control"
+                            formControlName="pages" type="text">
+    
+                        <!-- Contacts Form controls Here -->
+                    </div>
+                    <mat-icon (click)="removePage(i)">delete</mat-icon>
+                </div>
+                <button mat-raised-button type="button" (click)="addPage()">
+                    <mat-icon>exposure_plus_1</mat-icon>
+                </button>
+            </div>
+            <button mat-raised-button><input (click)="submit()">Ajout de pages</button>
+            
+    
+        </form>
+    
+
+        <button mat-raised-button><input type="submit" (click)="ajoute(idform.value.numero, idform.value.titre); idform.reset()"></button>
+
+
+    </form>
+   
+
+
+
+
+
+
+</mat-card>
